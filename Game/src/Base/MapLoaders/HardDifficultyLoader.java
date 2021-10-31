@@ -2,6 +2,7 @@ package Base.MapLoaders;
 
 import Base.Objects.Abstracts.AbstractFigur;
 import Base.Objects.Implementation.*;
+import Base.Objects.util.Coordinate;
 
 import java.util.Random;
 
@@ -33,8 +34,7 @@ public class HardDifficultyLoader implements DifficultyLoader {
                     else {
                         arrayValue = data[i][j];
                     }
-                    arrayValue.setX(j);
-                    arrayValue.setY(i);
+                    arrayValue.setCoordinate(new Coordinate(j, i));
                     data[i][j]=arrayValue;
                 }
 
@@ -44,8 +44,7 @@ public class HardDifficultyLoader implements DifficultyLoader {
         int playerX = 5;
         int playerY = 6;
         player = new Player();
-        player.setX(playerX);
-        player.setY(playerY);
+        player.setCoordinate(new Coordinate(playerX, playerY));
 
         data[playerY][playerX] = player;
         return data;

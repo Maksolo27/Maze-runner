@@ -1,28 +1,21 @@
 package Base.Objects.Abstracts;
 
 import Base.Objects.Enums.ObjectType;
+import Base.Objects.util.Coordinate;
 
 import javax.swing.*;
 
 public abstract class AbstractFigur {
-    private int x, y;
+    private Coordinate coordinate;
     private ImageIcon image;
     private ObjectType objectType;
 
-    public int getX() {
-        return x;
+    public Coordinate getCoordinate() {
+        return coordinate;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
     }
 
     public ImageIcon getImage() {

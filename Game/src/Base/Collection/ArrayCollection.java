@@ -11,6 +11,7 @@ import Base.Objects.Enums.ObjectType;
 import Base.Objects.Implementation.Emptiness;
 import Base.Objects.Implementation.Player;
 import Base.Objects.Implementation.Wall;
+import Base.Objects.util.Coordinate;
 import Base.Observer.CollectionPublisherImpl;
 import Base.Strategy.MovingStrategy;
 
@@ -61,9 +62,9 @@ public class ArrayCollection extends CollectionPublisherImpl {
         return data;
     }
 
-    public AbstractFigur getFigurByCoordinate(int y, int x) {
+    public AbstractFigur getFigurByCoordinate(Coordinate coordinate) {
         try {
-            return data[y][x];
+            return data[coordinate.getY()][coordinate.getX()];
         } catch (Exception e) {
             return null;
         }
@@ -72,8 +73,7 @@ public class ArrayCollection extends CollectionPublisherImpl {
     @Override
     public void setObjectByCoordinate(int y, int x, AbstractFigur object) {
         try {
-            object.setX(x);
-            object.setY(y);
+            object.setCoordinate(new Coordinate(x, y));
             data[y][x] = object;
         }catch (NullPointerException e){
             e.printStackTrace();
@@ -114,14 +114,14 @@ public class ArrayCollection extends CollectionPublisherImpl {
         int[] nextCoord = movingFigur.move(direction);
         int y = nextCoord[0];
         int x = nextCoord[1];
-        AbstractFigur nextObject = getFigurByCoordinate(y, x);
+        AbstractFigur nextObject = getFigurByCoordinate(new Coordinate(x, y));
         Action action = movingFigur.process(nextObject);
         AbstractFigur swapedFigur = new Emptiness();
         switch (action) {
             case LOSE:
                 movingObjects.remove(player);
                 if(movingFigur.getObjectType() == ObjectType.PLAYER){
-                    data[player.getY()][player.getX()] = new Emptiness();
+                    data[player.getCoordinate().getY()][player.getCoordinate().getX()] = new Emptiness();
                     movingFigur = null;
                 }
                 nextObject = new Emptiness();
@@ -130,7 +130,7 @@ public class ArrayCollection extends CollectionPublisherImpl {
             case ADD_GOLD:
             case WIN:
             case MOVE:
-                setObjectByCoordinate(movingFigur.getY(), movingFigur.getX(), swapedFigur);
+                setObjectByCoordinate(movingFigur.getCoordinate().getY(), movingFigur.getCoordinate().getX(), swapedFigur);
                 setObjectByCoordinate(y, x, movingFigur);
         }
     }

@@ -2,9 +2,7 @@ package Base.Threads;
 
 import Base.Collection.GameCollection;
 import Base.Objects.Enums.ObjectType;
-import Base.Strategy.RandomStrategy;
-
-import java.util.Collection;
+import Base.Strategy.AgressiveStrategy;
 
 public class GameThread extends Thread{
 
@@ -17,7 +15,7 @@ public class GameThread extends Thread{
     @Override
     public void run() {
         for (; ; ) {
-            collection.moveMovableFigur(ObjectType.BOT, new RandomStrategy());
+            collection.moveMovableFigur(ObjectType.BOT, new AgressiveStrategy());
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
