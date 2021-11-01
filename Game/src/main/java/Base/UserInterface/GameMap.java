@@ -49,7 +49,7 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
 
     public GameMap() {
         LoaderFactory loaderFactory = new LoaderFactory();
-        DifficultyLoader difficultyLoader = loaderFactory.getLoader(DifficultyLoaderType.EASYLOADER);
+        DifficultyLoader difficultyLoader = loaderFactory.getLoader(DifficultyLoaderType.HARDLOADER);
         collection = new ArrayCollection(difficultyLoader);
         collection.addListener(this);
         JFrame frame = new JFrame("Maze runner");
