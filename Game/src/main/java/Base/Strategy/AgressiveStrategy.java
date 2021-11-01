@@ -1,7 +1,6 @@
 package main.java.Base.Strategy;
 
 import main.java.Base.Collection.GameCollection;
-import main.java.Base.Objects.Abstracts.AbstractFigur;
 import main.java.Base.Objects.Abstracts.AbstractMovingFigur;
 import main.java.Base.Objects.Enums.Direction;
 import main.java.Base.Objects.Implementation.*;
@@ -33,7 +32,7 @@ public class AgressiveStrategy implements MovingStrategy{
                 case DOWN:
                     if(isMovingPossible(collection, current.getCoordinateNextObject(Direction.DOWN))){
                         return Direction.DOWN;
-                    }else {
+                    } else {
                         break;
                     }
                 case UP:
@@ -70,13 +69,20 @@ public class AgressiveStrategy implements MovingStrategy{
     }
 
     private Direction[] getSortDirection(Coordinate currentCoordinate, Coordinate playerCoordinate){
-        Direction[] resultDirections = new Direction[4];
+        Direction[] resultDirections = new Direction[Direction.values().length - 1];
         if(playerCoordinate.getY() > currentCoordinate.getY()){
             resultDirections[0] =  Direction.DOWN;
             resultDirections[3] = Direction.UP;
         }else {
             resultDirections[3] =  Direction.DOWN;
             resultDirections[0] = Direction.UP;
+        }
+        if(playerCoordinate.getX() > currentCoordinate.getX()){
+            resultDirections[1] = Direction.RIGHT;
+            resultDirections[2] =  Direction.LEFT;
+        }else {
+            resultDirections[2] = Direction.RIGHT;
+            resultDirections[1] = Direction.LEFT;
         }
         if(playerCoordinate.getY() == currentCoordinate.getY()){
             resultDirections[1] = Direction.DOWN;
@@ -89,15 +95,20 @@ public class AgressiveStrategy implements MovingStrategy{
                 resultDirections[0] = Direction.LEFT;
             }
         }
-        if(playerCoordinate.getX() > currentCoordinate.getX()){
+        if(playerCoordinate.getX() == currentCoordinate.getX()){
             resultDirections[1] = Direction.RIGHT;
-            resultDirections[2] =  Direction.LEFT;
-        }else {
-            resultDirections[2] = Direction.RIGHT;
-            resultDirections[1] = Direction.LEFT;
+            resultDirections[2] = Direction.LEFT;
+            if(playerCoordinate.getY() > currentCoordinate.getY()){
+                resultDirections[0] =  Direction.DOWN;
+                resultDirections[3] = Direction.UP;
+            }else {
+                resultDirections[3] =  Direction.DOWN;
+                resultDirections[0] = Direction.UP;
+            }
         }
         return resultDirections;
     }
+
 
 
 }
