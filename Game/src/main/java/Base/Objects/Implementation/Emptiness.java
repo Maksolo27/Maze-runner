@@ -1,7 +1,7 @@
-package main.java.Base.Objects.Implementation;
+package Base.Objects.Implementation;
 
-import main.java.Base.Objects.Abstracts.AbstractFigur;
-import main.java.Base.Objects.Enums.ObjectType;
+import Base.Objects.Abstracts.AbstractFigur;
+import Base.Objects.Enums.ObjectType;
 
 public class Emptiness extends AbstractFigur {
 

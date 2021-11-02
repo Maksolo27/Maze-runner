@@ -1,9 +1,9 @@
-package main.java.Base.Objects.Abstracts;
+package Base.Objects.Abstracts;
 
-import main.java.Base.Objects.Enums.Action;
-import main.java.Base.Objects.Enums.Direction;
-import main.java.Base.Objects.Enums.ObjectType;
-import main.java.Base.Objects.util.Coordinate;
+import Base.Objects.Enums.Action;
+import Base.Objects.Enums.Direction;
+import Base.Objects.Enums.ObjectType;
+import Base.Objects.util.Coordinate;
 
 public abstract class AbstractMovingFigur extends AbstractFigur {
 

@@ -1,4 +1,4 @@
-package main.java.Base.Observer;
+package Base.Observer;
 
 public interface CollectionSubscriber {
     void notifyFromListener();

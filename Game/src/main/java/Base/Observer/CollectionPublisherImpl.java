@@ -1,6 +1,6 @@
-package main.java.Base.Observer;
+package Base.Observer;
 
-import main.java.Base.Collection.GameCollection;
+import Base.Collection.GameCollection;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,23 +1,23 @@
-package main.java.Base.Collection;
+package Base.Collection;
 
-import main.java.Base.MapLoaders.DifficultyLoader;
-import main.java.Base.MapLoaders.mapLoaders.MapLoaderFactory;
-import main.java.Base.Objects.Abstracts.AbstractFigur;
-import main.java.Base.Objects.Abstracts.AbstractMovingFigur;
-import main.java.Base.Objects.Enums.Action;
-import main.java.Base.Objects.Enums.Direction;
-import main.java.Base.Objects.Enums.ObjectType;
-import main.java.Base.Objects.Implementation.Emptiness;
-import main.java.Base.Objects.Implementation.Player;
-import main.java.Base.Objects.Implementation.Wall;
-import main.java.Base.Objects.util.Coordinate;
-import main.java.Base.Observer.CollectionPublisherImpl;
-import main.java.Base.Strategy.MovingStrategy;
+import Base.MapLoaders.DifficultyLoader;
+import Base.MapLoaders.mapLoaders.MapLoaderFactory;
+import Base.Objects.Abstracts.AbstractFigur;
+import Base.Objects.Abstracts.AbstractMovingFigur;
+import Base.Objects.Enums.Action;
+import Base.Objects.Enums.Direction;
+import Base.Objects.Enums.ObjectType;
+import Base.Objects.Implementation.Emptiness;
+import Base.Objects.Implementation.Player;
+import Base.Objects.Implementation.Wall;
+import Base.Objects.util.Coordinate;
+import Base.Observer.CollectionPublisherImpl;
+import Base.Strategy.MovingStrategy;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class ArrayCollection extends CollectionPublisherImpl {
+public class ArrayCollection extends CollectionPublisherImpl implements GameCollection {
     MapLoaderFactory mapLoaderFactory = new MapLoaderFactory();
     AbstractFigur[][] data = {
             {new Emptiness(), new Emptiness(), new Wall(), new Emptiness(), new Emptiness(), new Wall(), new Emptiness(), new Emptiness(), new Emptiness(), new Emptiness(), new Emptiness()},

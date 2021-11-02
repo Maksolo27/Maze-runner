@@ -1,9 +1,9 @@
-package main.java.Base.Objects.Implementation;
+package Base.Objects.Implementation;
 
-import main.java.Base.Objects.Abstracts.AbstractFigur;
-import main.java.Base.Objects.Abstracts.AbstractMovingFigur;
-import main.java.Base.Objects.Enums.Action;
-import main.java.Base.Objects.Enums.ObjectType;
+import Base.Objects.Abstracts.AbstractFigur;
+import Base.Objects.Abstracts.AbstractMovingFigur;
+import Base.Objects.Enums.Action;
+import Base.Objects.Enums.ObjectType;
 
 import javax.swing.*;
 

@@ -1,14 +1,14 @@
 
-package main.java.Base.UserInterface;
+package Base.UserInterface;
 
-import main.java.Base.Collection.ArrayCollection;
-import main.java.Base.Collection.GameCollection;
-import main.java.Base.MapLoaders.*;
-import main.java.Base.Objects.Enums.Direction;
-import main.java.Base.Objects.Enums.ObjectType;
-import main.java.Base.Observer.CollectionSubscriber;
-import main.java.Base.Objects.Implementation.*;
-import main.java.Base.Threads.GameThread;
+import Base.Collection.ArrayCollection;
+import Base.Collection.GameCollection;
+import Base.MapLoaders.*;
+import Base.Objects.Enums.Direction;
+import Base.Objects.Enums.ObjectType;
+import Base.Observer.CollectionSubscriber;
+import Base.Objects.Implementation.*;
+import Base.Threads.GameThread;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -49,7 +49,7 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
 
     public GameMap() {
         LoaderFactory loaderFactory = new LoaderFactory();
-        DifficultyLoader difficultyLoader = loaderFactory.getLoader(DifficultyLoaderType.HARDLOADER);
+        DifficultyLoader difficultyLoader = loaderFactory.getLoader(DifficultyLoaderType.EASYLOADER);
         collection = new ArrayCollection(difficultyLoader);
         collection.addListener(this);
         JFrame frame = new JFrame("Maze runner");

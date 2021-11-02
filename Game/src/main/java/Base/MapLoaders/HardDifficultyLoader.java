@@ -1,8 +1,8 @@
-package main.java.Base.MapLoaders;
+package Base.MapLoaders;
 
-import main.java.Base.Objects.Abstracts.AbstractFigur;
-import main.java.Base.Objects.Implementation.*;
-import main.java.Base.Objects.util.Coordinate;
+import Base.Objects.Abstracts.AbstractFigur;
+import Base.Objects.Implementation.*;
+import Base.Objects.util.Coordinate;
 
 import java.util.Random;
 

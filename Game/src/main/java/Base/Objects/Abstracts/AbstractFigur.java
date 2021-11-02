@@ -1,7 +1,7 @@
-package main.java.Base.Objects.Abstracts;
+package Base.Objects.Abstracts;
 
-import main.java.Base.Objects.Enums.ObjectType;
-import main.java.Base.Objects.util.Coordinate;
+import Base.Objects.Enums.ObjectType;
+import Base.Objects.util.Coordinate;
 
 import javax.swing.*;
 

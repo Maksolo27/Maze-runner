@@ -1,4 +1,4 @@
-package main.java.Base.Objects.util;
+package Base.Objects.util;
 
 public class Coordinate {
 

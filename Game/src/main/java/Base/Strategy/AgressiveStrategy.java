@@ -1,10 +1,10 @@
-package main.java.Base.Strategy;
+package Base.Strategy;
 
-import main.java.Base.Collection.GameCollection;
-import main.java.Base.Objects.Abstracts.AbstractMovingFigur;
-import main.java.Base.Objects.Enums.Direction;
-import main.java.Base.Objects.Implementation.*;
-import main.java.Base.Objects.util.Coordinate;
+import Base.Collection.GameCollection;
+import Base.Objects.Abstracts.AbstractMovingFigur;
+import Base.Objects.Enums.Direction;
+import Base.Objects.Implementation.*;
+import Base.Objects.util.Coordinate;
 
 import java.util.List;
 

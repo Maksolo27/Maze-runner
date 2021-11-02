@@ -1,14 +1,14 @@
-package main.java.Base.Collection;
+package Base.Collection;
 
 
-import main.java.Base.Objects.Abstracts.AbstractFigur;
-import main.java.Base.Objects.Abstracts.AbstractMovingFigur;
-import main.java.Base.Objects.Enums.Direction;
-import main.java.Base.Objects.Enums.ObjectType;
-import main.java.Base.Objects.Implementation.Player;
-import main.java.Base.Objects.util.Coordinate;
-import main.java.Base.Observer.CollectionPublisher;
-import main.java.Base.Strategy.MovingStrategy;
+import Base.Objects.Abstracts.AbstractFigur;
+import Base.Objects.Abstracts.AbstractMovingFigur;
+import Base.Objects.Enums.Direction;
+import Base.Objects.Enums.ObjectType;
+import Base.Objects.Implementation.Player;
+import Base.Objects.util.Coordinate;
+import Base.Observer.CollectionPublisher;
+import Base.Strategy.MovingStrategy;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
-package main.java.Base.Threads;
+package Base.Threads;
 
-import main.java.Base.Collection.GameCollection;
-import main.java.Base.Objects.Enums.ObjectType;
-import main.java.Base.Strategy.AgressiveStrategy;
-import main.java.Base.Strategy.RandomStrategy;
+import Base.Collection.GameCollection;
+import Base.Objects.Enums.ObjectType;
+import Base.Strategy.AgressiveStrategy;
+import Base.Strategy.RandomStrategy;
 
 public class GameThread extends Thread{
 

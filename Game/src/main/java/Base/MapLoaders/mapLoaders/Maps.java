@@ -1,4 +1,4 @@
-package main.java.Base.MapLoaders.mapLoaders;
+package Base.MapLoaders.mapLoaders;
 
 public enum Maps {
     SPIRAL,

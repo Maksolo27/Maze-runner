@@ -1,7 +1,7 @@
-package main.java.Base.MapLoaders;
+package Base.MapLoaders;
 
-import main.java.Base.Objects.Abstracts.AbstractFigur;
-import main.java.Base.Objects.Implementation.Player;
+import Base.Objects.Abstracts.AbstractFigur;
+import Base.Objects.Implementation.Player;
 
 public interface DifficultyLoader {
 

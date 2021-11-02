@@ -1,4 +1,4 @@
-package main.java.Base.MapLoaders;
+package Base.MapLoaders;
 
 public class LoaderFactory {
 

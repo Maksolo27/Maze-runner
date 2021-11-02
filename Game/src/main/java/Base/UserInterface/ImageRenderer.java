@@ -1,6 +1,6 @@
-package main.java.Base.UserInterface;
+package Base.UserInterface;
 
-import main.java.Base.Objects.Abstracts.AbstractFigur;
+import Base.Objects.Abstracts.AbstractFigur;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;

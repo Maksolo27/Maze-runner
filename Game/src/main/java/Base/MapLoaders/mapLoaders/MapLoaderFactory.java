@@ -1,8 +1,8 @@
-package main.java.Base.MapLoaders.mapLoaders;
+package Base.MapLoaders.mapLoaders;
 
-import main.java.Base.Objects.Abstracts.AbstractFigur;
-import main.java.Base.Objects.Implementation.Emptiness;
-import main.java.Base.Objects.Implementation.Wall;
+import Base.Objects.Abstracts.AbstractFigur;
+import Base.Objects.Implementation.Emptiness;
+import Base.Objects.Implementation.Wall;
 
 import java.io.FileReader;
 import java.io.IOException;
