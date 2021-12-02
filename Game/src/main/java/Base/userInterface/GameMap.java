@@ -3,6 +3,7 @@ package Base.userInterface;
 
 import Base.collection.ArrayCollection;
 import Base.collection.GameCollection;
+import Base.db.PlayerDAO;
 import Base.mapLoaders.*;
 import Base.objects.Enums.Direction;
 import Base.objects.Enums.ObjectType;

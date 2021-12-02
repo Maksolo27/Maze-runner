@@ -1,5 +1,6 @@
 package Base.collection;
 
+import Base.db.PlayerDAO;
 import Base.mapLoaders.DifficultyLoader;
 import Base.mapLoaders.mapLoaders.MapLoaderFactory;
 import Base.objects.Abstracts.AbstractFigur;
@@ -126,6 +127,8 @@ public class ArrayCollection extends CollectionPublisherImpl implements GameColl
         AbstractFigur swapedFigur = new Emptiness();
         switch (action) {
             case LOSE:
+                PlayerDAO playerDAO = new PlayerDAO();
+                playerDAO.save(player);
                 movingObjects.remove(player);
                 if(movingFigur.getObjectType() == ObjectType.PLAYER){
                     data[player.getCoordinate().getY()][player.getCoordinate().getX()] = new Emptiness();

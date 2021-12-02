@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class Player extends AbstractMovingFigur implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     private int score = 0;
