@@ -24,6 +24,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class ArrayCollection extends CollectionPublisherImpl implements GameCollection {
     private static final Logger logger = LogManager.getLogger();
     MapLoaderFactory mapLoaderFactory = new MapLoaderFactory();
+    PlayerDAO playerDAO = new PlayerDAO();
     AbstractFigur[][] data = {
             {new Emptiness(), new Emptiness(), new Wall(), new Emptiness(), new Emptiness(), new Wall(), new Emptiness(), new Emptiness(), new Emptiness(), new Emptiness(), new Emptiness()},
             {new Wall(), new Emptiness(), new Wall(), new Emptiness(), new Emptiness(), new Wall(), new Emptiness(), new Emptiness(), new Emptiness(), new Emptiness(), new Wall()},
@@ -124,11 +125,10 @@ public class ArrayCollection extends CollectionPublisherImpl implements GameColl
         int x = nextCoord[1];
         AbstractFigur nextObject = getFigurByCoordinate(new Coordinate(x, y));
         Action action = movingFigur.process(nextObject);
+        player.setGameStatus(action);
         AbstractFigur swapedFigur = new Emptiness();
         switch (action) {
             case LOSE:
-                PlayerDAO playerDAO = new PlayerDAO();
-                playerDAO.save(player);
                 movingObjects.remove(player);
                 if(movingFigur.getObjectType() == ObjectType.PLAYER){
                     data[player.getCoordinate().getY()][player.getCoordinate().getX()] = new Emptiness();

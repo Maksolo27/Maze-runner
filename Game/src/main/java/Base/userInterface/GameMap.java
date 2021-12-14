@@ -30,9 +30,8 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
     private static final Logger logger = LogManager.getLogger();
 
 
-    public Player player = new Player();
 
-    private String gameStatus = "Play game";
+
     public GameCollection collection;
 
     void runTheGame() throws Exception {
@@ -93,8 +92,8 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
         labelSteps.setText("Counter: " + countSteps);
     }
 
-    private void gameStatus() {
-        labelGameStatus.setText(gameStatus);
+    private void gameStatus(String gameStatus) {
+        labelGameStatus.setText("Status: " + gameStatus);
     }
 
     public void drawTable() {
@@ -104,7 +103,6 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
             TableColumn a = table.getColumnModel().getColumn(i);
             a.setPreferredWidth(26);
         }
-        gameStatus();
     }
 
     @Override
@@ -112,6 +110,7 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
         Player player = collection.getPlayer();
         score(player.getScore());
         countSteps(player.getCountSteps());
+        gameStatus(player.getGameStatus());
         drawTable();
     }
 

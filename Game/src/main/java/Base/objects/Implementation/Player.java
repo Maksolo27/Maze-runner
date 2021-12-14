@@ -1,5 +1,6 @@
 package Base.objects.Implementation;
 
+import Base.db.PlayerDAO;
 import Base.objects.Abstracts.AbstractFigur;
 import Base.objects.Abstracts.AbstractMovingFigur;
 import Base.objects.Enums.Action;
@@ -21,6 +22,8 @@ public class Player extends AbstractMovingFigur implements Serializable {
     private int score = 0;
     @Column(name = "count_steps")
     private int countSteps = 50;
+    @Column(name = "game_status")
+    private String gameStatus = "In game";
 
     public Player(){
         setImage(new ImageIcon(getClass().getResource("/images/goldman_up.png")));
@@ -41,6 +44,15 @@ public class Player extends AbstractMovingFigur implements Serializable {
 
     public void setCountSteps(int countSteps) {
         this.countSteps = countSteps;
+    }
+
+    public void setGameStatus(Action action){
+        switch (action){
+            case WIN:
+                gameStatus = "You win";
+            case LOSE:
+                gameStatus = "You lose";
+        }
     }
 
     public int getScore() {
