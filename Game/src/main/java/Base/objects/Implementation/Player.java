@@ -50,8 +50,10 @@ public class Player extends AbstractMovingFigur implements Serializable {
         switch (action){
             case WIN:
                 gameStatus = "You win";
+                break;
             case LOSE:
                 gameStatus = "You lose";
+                break;
         }
     }
 
