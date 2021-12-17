@@ -70,7 +70,7 @@ public class ArrayCollection extends CollectionPublisherImpl implements GameColl
     public AbstractFigur getFigurByCoordinate(Coordinate coordinate) {
         try {
             return data[coordinate.getY()][coordinate.getX()];
-        } catch (NullPointerException e) {
+        } catch (NullPointerException | ArrayIndexOutOfBoundsException e) {
             logger.warn("Figur not found");
             return null;
         }
@@ -141,6 +141,7 @@ public class ArrayCollection extends CollectionPublisherImpl implements GameColl
             case ADD_GOLD:
             case WIN:
             case MOVE:
+                //TODO: FIX NullPointerException
                 setObjectByCoordinate(movingFigur.getCoordinate().getY(), movingFigur.getCoordinate().getX(), swapedFigur);
                 setObjectByCoordinate(y, x, movingFigur);
         }
