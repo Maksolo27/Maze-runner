@@ -7,11 +7,11 @@ import Base.objects.Enums.ObjectType;
 
 import javax.swing.*;
 
-public class Bot extends AbstractMovingFigur {
+public class BotEater extends AbstractMovingFigur {
 
-    public Bot(){
-        setImage(new ImageIcon(getClass().getResource("/images/monster_up.jpg")));
-        setObjectType(ObjectType.BOT);
+    public BotEater(){
+        setImage(new ImageIcon(getClass().getResource("/images/search.png")));
+        setObjectType(ObjectType.BOT_EATER);
     }
 
     @Override
@@ -20,9 +20,10 @@ public class Bot extends AbstractMovingFigur {
             return Action.NONE;
         }
         if(nextObject.getObjectType() == ObjectType.PLAYER){
-            return Action.LOSE;
+            return Action.BOT_EATER_PLAYER;
         }
-        if(nextObject.getObjectType() == ObjectType.BOT_EATER){
+        if(nextObject.getObjectType() == ObjectType.BOT){
+            System.out.println("nextObjInBotEat = BOT " );
             return Action.EAT_BOT;
         }
         if (nextObject.getObjectType() == ObjectType.GOLD){
@@ -30,5 +31,4 @@ public class Bot extends AbstractMovingFigur {
         }
         return super.process(nextObject);
     }
-
 }

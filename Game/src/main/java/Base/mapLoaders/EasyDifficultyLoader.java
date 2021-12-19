@@ -8,9 +8,10 @@ import java.util.Random;
 
 public class EasyDifficultyLoader implements DifficultyLoader {
 
-    private static final String[] array = {"N", "N", "N", "N", "GG", "GG", "E", "M", "N", "N", "N"};
+    private static final String[] array = {"N", "BE", "N", "N", "GG", "GG", "E", "M", "N", "N", "N"};
 
     short goldCount = 17;
+    short botEaterCount = 3;
     short botCount = 1;
 
     @Override
@@ -34,7 +35,10 @@ public class EasyDifficultyLoader implements DifficultyLoader {
                     } else if (array[elemIndex].equals("GG") && goldCount > 0) {
                         arrayValue = new Gold();
                         goldCount--;
-                    } else {
+                    } else if (array[elemIndex].equals("BE") && botEaterCount > 0) {
+                        arrayValue = new BotEater();
+                        botEaterCount--;
+                    }else {
                         arrayValue = data[i][j];
                     }
                     arrayValue.setCoordinate(new Coordinate(j, i));

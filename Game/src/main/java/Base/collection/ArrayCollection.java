@@ -19,6 +19,7 @@ import org.apache.logging.log4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ArrayCollection extends CollectionPublisherImpl implements GameCollection {
@@ -128,21 +129,30 @@ public class ArrayCollection extends CollectionPublisherImpl implements GameColl
         player.setGameStatus(action);
         AbstractFigur swapedFigur = new Emptiness();
         switch (action) {
+            case WIN:
             case LOSE:
                 movingObjects.remove(player);
+//                playerDAO.save(player);
                 if(movingFigur.getObjectType() == ObjectType.PLAYER){
                     data[player.getCoordinate().getY()][player.getCoordinate().getX()] = new Emptiness();
                     movingFigur = null;
                 }
                 nextObject = new Emptiness();
+                break;
+            case EAT_BOT:
+                movingObjects.remove(nextObject);
+                if(movingFigur.getObjectType() == ObjectType.BOT_EATER) {
+                    System.out.println("EAT_BOT");
+                    data[movingFigur.getCoordinate().getY()][movingFigur.getCoordinate().getX()] = new Emptiness();
+                }
+                nextObject = new Emptiness();
             case BOT_GOLD:
-                logger.info("Swap bot and gold");
+            case BOT_EATER_PLAYER:
                 swapedFigur = nextObject;
             case ADD_GOLD:
-            case WIN:
             case MOVE:
                 //TODO: FIX NullPointerException
-                setObjectByCoordinate(movingFigur.getCoordinate().getY(), movingFigur.getCoordinate().getX(), swapedFigur);
+                setObjectByCoordinate(Objects.requireNonNull(movingFigur).getCoordinate().getY(), movingFigur.getCoordinate().getX(), swapedFigur);
                 setObjectByCoordinate(y, x, movingFigur);
         }
     }

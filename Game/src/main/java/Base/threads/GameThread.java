@@ -3,6 +3,7 @@ package Base.threads;
 import Base.collection.GameCollection;
 import Base.objects.Enums.ObjectType;
 import Base.strategy.AgressiveStrategy;
+import Base.strategy.RandomStrategy;
 
 public class GameThread extends Thread{
 
@@ -15,6 +16,7 @@ public class GameThread extends Thread{
     @Override
     public void run() {
         for (; ; ) {
+            collection.moveMovableFigur(ObjectType.BOT_EATER, new RandomStrategy());
             collection.moveMovableFigur(ObjectType.BOT, new AgressiveStrategy());
             try {
                 Thread.sleep(500);
