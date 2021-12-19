@@ -27,7 +27,7 @@ public class MapLoaderFactoryTest {
         AbstractFigur[][] result = loaderFactory.getMap(Maps.DATA);
         for (int i = 0; i < result.length ; i++) {
             for (int j = 0; j < result[i].length; j++) {
-                Assert.isTrue(result[i][j].equals(data[i][j]));
+                Assert.isTrue(result[i][j].getObjectType() == data[i][j].getObjectType());
 
             }
         }

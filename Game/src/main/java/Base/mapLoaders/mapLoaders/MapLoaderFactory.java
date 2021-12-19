@@ -25,10 +25,10 @@ public class MapLoaderFactory {
     }
 
     private AbstractFigur[][] parseStringToGameMap(String stringMap) {
-        int lengthOfWidth = stringMap.split("\r\n").length;
-        int lengthOfHeight = stringMap.split("\r\n")[0].split(" ").length;
+        int lengthOfWidth = stringMap.split("\n").length;
+        int lengthOfHeight = stringMap.split("\n")[0].split(" ").length;
         AbstractFigur[][] map = new Emptiness[lengthOfWidth][lengthOfHeight];
-        String[] width = stringMap.split("\r\n");
+        String[] width = stringMap.split("\n");
         for (int i = 0; i < width.length ; i++) {
             String [] stringFigurs = width[i].split(" ");
             for (int j = 0; j < stringFigurs.length; j++) {
