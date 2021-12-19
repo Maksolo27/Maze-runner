@@ -6,6 +6,8 @@ import Base.objects.Implementation.Wall;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class MapLoaderFactory {
 
@@ -22,17 +24,39 @@ public class MapLoaderFactory {
         return mapTxt.toString();
     }
 
-    private AbstractFigur[][] parseStringToGameMap(String stringMap, int height, int width) {
-        return null;
+    private AbstractFigur[][] parseStringToGameMap(String stringMap) {
+        int lengthOfWidth = stringMap.split("\r\n").length;
+        int lengthOfHeight = stringMap.split("\r\n")[0].split(" ").length;
+        AbstractFigur[][] map = new Emptiness[lengthOfWidth][lengthOfHeight];
+        String[] width = stringMap.split("\r\n");
+        for (int i = 0; i < width.length ; i++) {
+            String [] stringFigurs = width[i].split(" ");
+            for (int j = 0; j < stringFigurs.length; j++) {
+                String stringFigur = stringFigurs[j];
+                if (stringFigur.equals("W")){
+                    map[i][j] = new Wall();
+                }
+                else if (stringFigur.equals("E")){
+                    map[i][j] = new Emptiness();
+                }
+            }
+        }
+        return map;
     }
 
 
     public AbstractFigur[][] getMap(Maps type){
         AbstractFigur[][] map = null;
+        String fileConsist;
         switch (type) {
             case SPIRAL:
-                String fileConsist = readFile("C:\\Users\\maxim\\IdeaProjects\\Project\\Game\\src\\main.java.Base\\MapLoaders\\mapLoaders\\spiral.txt");
-                map = parseStringToGameMap(fileConsist, 11, 11);
+                fileConsist = readFile("src/main/java/Base/mapLoaders/mapLoaders/spiral.txt");
+                map = parseStringToGameMap(fileConsist);
+                break;
+
+            case DATA:
+                fileConsist = readFile("src/main/java/Base/mapLoaders/mapLoaders/data.txt");
+                map = parseStringToGameMap(fileConsist);
                 break;
         }
         return map;
