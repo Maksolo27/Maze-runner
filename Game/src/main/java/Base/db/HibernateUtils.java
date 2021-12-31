@@ -1,6 +1,6 @@
 package Base.db;
 
-import Base.objects.Implementation.Player;
+import Base.objects.implementation.Player;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

@@ -4,13 +4,11 @@ package Base.userInterface;
 import Base.collection.ArrayCollection;
 import Base.collection.GameCollection;
 import Base.mapLoaders.*;
-import Base.objects.Enums.Direction;
-import Base.objects.Enums.ObjectType;
-import Base.objects.Implementation.Player;
+import Base.objects.enums.Direction;
+import Base.objects.enums.ObjectType;
+import Base.objects.implementation.Player;
 import Base.observer.CollectionSubscriber;
 import Base.threads.GameThread;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -26,12 +24,9 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
 
     final int WIDTH = 576;
     final int HEIGHT = 576;
-    private static final Logger logger = LogManager.getLogger();
-
     public GameCollection collection;
 
     void runTheGame() throws Exception {
-        logger.info("Run the game");
         GameThread thread = new GameThread(collection);
         thread.start();
     }
@@ -48,9 +43,8 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
     JLabel labelTime = new JLabel();
     JLabel labelGameStatus = new JLabel();
 
-    public GameMap() {
-        logger.info("Start initialize Map");
-        LoaderFactory loaderFactory = new LoaderFactory();
+    public GameMap() throws Exception {
+        DifficultyLoaderFactory loaderFactory = new DifficultyLoaderFactory();
         DifficultyLoader difficultyLoader = loaderFactory.getLoader(DifficultyLoaderType.EASYLOADER);
         collection = new ArrayCollection(difficultyLoader);
         collection.addListener(this);
@@ -77,7 +71,6 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
         frame.getContentPane().add(this);
         frame.setVisible(true);
         frame.addKeyListener(this);
-        logger.info("End initialize Map");
     }
 
     private void score(int score) {
@@ -119,19 +112,15 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()){
             case VK_UP:
-                logger.info("Move up");
                 collection.moveMovableFigur(ObjectType.PLAYER,Direction.UP);
                 break;
             case VK_LEFT:
-                logger.info("Move left");
                 collection.moveMovableFigur(ObjectType.PLAYER,Direction.LEFT);
                 break;
             case VK_DOWN:
-                logger.info("Move down");
                 collection.moveMovableFigur(ObjectType.PLAYER,Direction.DOWN);
                 break;
             case VK_RIGHT:
-                logger.info("Move right");
                 collection.moveMovableFigur(ObjectType.PLAYER,Direction.RIGHT);
                 break;
         }

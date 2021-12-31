@@ -1,11 +1,11 @@
-package Base.objects.Implementation;
+package Base.objects.implementation;
 
-import Base.objects.Abstracts.AbstractFigur;
-import Base.objects.Enums.ObjectType;
+import Base.objects.enums.ObjectType;
+import Base.objects.implementation.defaultImpl.Figur;
 
 import javax.swing.*;
 
-public class Gold extends AbstractFigur {
+public class Gold extends Figur {
     public Gold(){
         setImage(new ImageIcon(getClass().getResource("/images/gold.png")));
         setObjectType(ObjectType.GOLD);

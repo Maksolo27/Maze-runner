@@ -1,7 +1,7 @@
 package Base.threads;
 
 import Base.collection.GameCollection;
-import Base.objects.Enums.ObjectType;
+import Base.objects.enums.ObjectType;
 import Base.strategy.AgressiveStrategy;
 import Base.strategy.RandomStrategy;
 

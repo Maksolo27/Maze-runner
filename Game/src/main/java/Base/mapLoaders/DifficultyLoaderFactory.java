@@ -1,6 +1,6 @@
 package Base.mapLoaders;
 
-public class LoaderFactory {
+public class DifficultyLoaderFactory {
 
     public DifficultyLoader getLoader(DifficultyLoaderType type){
         DifficultyLoader difficultyLoader = null;

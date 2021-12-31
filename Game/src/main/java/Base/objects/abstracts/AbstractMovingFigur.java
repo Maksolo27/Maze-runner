@@ -1,11 +1,12 @@
-package Base.objects.Abstracts;
+package Base.objects.abstracts;
 
-import Base.objects.Enums.Action;
-import Base.objects.Enums.Direction;
-import Base.objects.Enums.ObjectType;
+import Base.objects.enums.Action;
+import Base.objects.enums.Direction;
+import Base.objects.enums.ObjectType;
+import Base.objects.implementation.defaultImpl.Figur;
 import Base.objects.util.Coordinate;
 
-public abstract class AbstractMovingFigur extends AbstractFigur {
+public abstract class AbstractMovingFigur extends Figur {
 
     public Action process(AbstractFigur nextObject) {
         if(nextObject == null){

@@ -1,10 +1,9 @@
-package Base.objects.Implementation;
+package Base.objects.implementation;
 
-import Base.db.PlayerDAO;
-import Base.objects.Abstracts.AbstractFigur;
-import Base.objects.Abstracts.AbstractMovingFigur;
-import Base.objects.Enums.Action;
-import Base.objects.Enums.ObjectType;
+import Base.objects.abstracts.AbstractFigur;
+import Base.objects.enums.Action;
+import Base.objects.enums.ObjectType;
+import Base.objects.implementation.defaultImpl.MovingFigur;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -13,7 +12,7 @@ import java.io.Serializable;
 
 @Entity(name = "player")
 @Data
-public class Player extends AbstractMovingFigur implements Serializable {
+public class Player extends MovingFigur implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
