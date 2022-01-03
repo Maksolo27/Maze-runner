@@ -1,8 +1,9 @@
 import Base.mapLoaders.mapLoaders.MapLoaderFactory;
 import Base.mapLoaders.mapLoaders.Maps;
-import Base.objects.Abstracts.AbstractFigur;
-import Base.objects.Implementation.Emptiness;
-import Base.objects.Implementation.Wall;
+import Base.objects.abstracts.AbstractFigur;
+import Base.objects.implementation.Emptiness;
+import Base.objects.implementation.Wall;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
 
@@ -23,6 +24,7 @@ public class MapLoaderFactoryTest {
             {new Emptiness(), new Emptiness(), new Emptiness(), new Emptiness(), new Wall(), new Emptiness(), new Emptiness(), new Emptiness(), new Emptiness(), new Emptiness(), new Emptiness()}
     };
     @Test
+    @SneakyThrows
     public void testLoader(){
         AbstractFigur[][] result = loaderFactory.getMap(Maps.DATA);
         for (int i = 0; i < result.length ; i++) {
@@ -33,7 +35,8 @@ public class MapLoaderFactoryTest {
         }
     }
     @Test
-    public void aboba(){
+    @SneakyThrows
+    public void showMap(){
         AbstractFigur[][] result = loaderFactory.getMap(Maps.SPIRAL);
         for (int i = 0; i < result.length ; i++) {
             System.out.println();

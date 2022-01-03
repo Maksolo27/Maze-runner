@@ -1,8 +1,8 @@
 package Base.strategy;
 
 import Base.collection.GameCollection;
-import Base.objects.Abstracts.AbstractMovingFigur;
-import Base.objects.Enums.Direction;
+import Base.objects.abstracts.AbstractMovingFigur;
+import Base.objects.enums.Direction;
 
 import java.util.Random;
 

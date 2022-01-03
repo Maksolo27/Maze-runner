@@ -1,15 +1,35 @@
 package Base.mapLoaders.mapLoaders;
 
-import Base.objects.Abstracts.AbstractFigur;
-import Base.objects.Implementation.Emptiness;
-import Base.objects.Implementation.Wall;
+import Base.objects.abstracts.AbstractFigur;
+import Base.objects.implementation.Emptiness;
+import Base.objects.implementation.Wall;
+import Base.objects.implementation.defaultImpl.Figur;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
-public class MapLoaderFactory {
+public class MapLoaderFactory implements LoaderFactory {
+
+    private static final String MAP_PATH = "src/main/java/Base/mapLoaders/mapLoaders/";
+
+    public AbstractFigur[][] getMap(Maps type) throws Exception {
+        AbstractFigur[][] map = null;
+        String fileConsist;
+        switch (type) {
+            case SPIRAL:
+                fileConsist = readFile(MAP_PATH.concat("spiral.txt"));
+                map = parseStringToGameMap(fileConsist);
+                break;
+
+            case DATA:
+                fileConsist = readFile(MAP_PATH.concat("data.txt"));
+                map = parseStringToGameMap(fileConsist);
+                break;
+            default:
+                throw new Exception("Not supported Map");
+        }
+        return map;
+    }
 
     private String readFile(String path) {
         StringBuilder mapTxt = new StringBuilder();
@@ -24,11 +44,12 @@ public class MapLoaderFactory {
         return mapTxt.toString();
     }
 
-    private AbstractFigur[][] parseStringToGameMap(String stringMap) {
-        int lengthOfWidth = stringMap.split("\n").length;
-        int lengthOfHeight = stringMap.split("\n")[0].split(" ").length;
-        AbstractFigur[][] map = new Emptiness[lengthOfWidth][lengthOfHeight];
-        String[] width = stringMap.split("\n");
+    private AbstractFigur[][] parseStringToGameMap(String stringMap) throws Exception {
+        String separator = getNewLineSeparator();
+        int lengthOfWidth = stringMap.split(separator).length;
+        int lengthOfHeight = stringMap.split(separator)[0].split(" ").length;
+        AbstractFigur[][] map = new Figur[lengthOfWidth][lengthOfHeight];
+        String[] width = stringMap.split(separator);
         for (int i = 0; i < width.length ; i++) {
             String [] stringFigurs = width[i].split(" ");
             for (int j = 0; j < stringFigurs.length; j++) {
@@ -44,22 +65,20 @@ public class MapLoaderFactory {
         return map;
     }
 
-
-    public AbstractFigur[][] getMap(Maps type){
-        AbstractFigur[][] map = null;
-        String fileConsist;
-        switch (type) {
-            case SPIRAL:
-                fileConsist = readFile("src/main/java/Base/mapLoaders/mapLoaders/spiral.txt");
-                map = parseStringToGameMap(fileConsist);
+    private String getNewLineSeparator() throws Exception {
+        String separator = "";
+        String os = System.getProperties().getProperty("os.name");
+        switch (os) {
+            case "Linux":
+                separator = "\n";
                 break;
-
-            case DATA:
-                fileConsist = readFile("src/main/java/Base/mapLoaders/mapLoaders/data.txt");
-                map = parseStringToGameMap(fileConsist);
+            case "Windows":
+                separator = "\r\n";
                 break;
+            default:
+                throw new Exception("Not supported os");
         }
-        return map;
+        return separator;
     }
 }
 

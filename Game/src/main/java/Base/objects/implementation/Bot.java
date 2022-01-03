@@ -1,13 +1,13 @@
-package Base.objects.Implementation;
+package Base.objects.implementation;
 
-import Base.objects.Abstracts.AbstractFigur;
-import Base.objects.Abstracts.AbstractMovingFigur;
-import Base.objects.Enums.Action;
-import Base.objects.Enums.ObjectType;
+import Base.objects.abstracts.AbstractFigur;
+import Base.objects.enums.Action;
+import Base.objects.enums.ObjectType;
+import Base.objects.implementation.defaultImpl.MovingFigur;
 
 import javax.swing.*;
 
-public class Bot extends AbstractMovingFigur {
+public class Bot extends MovingFigur {
 
     public Bot(){
         setImage(new ImageIcon(getClass().getResource("/images/monster_up.jpg")));

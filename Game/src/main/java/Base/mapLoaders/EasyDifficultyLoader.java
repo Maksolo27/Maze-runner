@@ -1,7 +1,7 @@
 package Base.mapLoaders;
 
-import Base.objects.Abstracts.AbstractFigur;
-import Base.objects.Implementation.*;
+import Base.objects.abstracts.AbstractFigur;
+import Base.objects.implementation.*;
 import Base.objects.util.Coordinate;
 
 import java.util.Random;

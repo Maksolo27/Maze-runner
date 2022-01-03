@@ -1,7 +1,7 @@
 package Base.mapLoaders;
 
-import Base.objects.Abstracts.AbstractFigur;
-import Base.objects.Implementation.Player;
+import Base.objects.abstracts.AbstractFigur;
+import Base.objects.implementation.Player;
 import Base.objects.util.Coordinate;
 
 public interface DifficultyLoader {

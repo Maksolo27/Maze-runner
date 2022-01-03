@@ -1,6 +1,6 @@
-package Base.objects.Abstracts;
+package Base.objects.abstracts;
 
-import Base.objects.Enums.ObjectType;
+import Base.objects.enums.ObjectType;
 import Base.objects.util.Coordinate;
 
 import javax.swing.*;

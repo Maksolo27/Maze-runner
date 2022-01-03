@@ -1,11 +1,11 @@
-package Base.objects.Implementation;
+package Base.objects.implementation;
 
-import Base.objects.Abstracts.AbstractFigur;
-import Base.objects.Enums.ObjectType;
+import Base.objects.enums.ObjectType;
+import Base.objects.implementation.defaultImpl.Figur;
 
 import javax.swing.*;
 
-public class Exit extends AbstractFigur {
+public class Exit extends Figur {
     private static Exit instance;
     private Exit(){
         setImage(new ImageIcon(getClass().getResource("/images/exit.gif")));
