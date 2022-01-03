@@ -10,7 +10,7 @@ import javax.swing.*;
 public class BotEater extends AbstractMovingFigur {
 
     public BotEater(){
-        setImage(new ImageIcon(getClass().getResource("/images/search.png")));
+        setImage(new ImageIcon(getClass().getResource("/images/minipekka.jpg")));
         setObjectType(ObjectType.BOT_EATER);
     }
 
