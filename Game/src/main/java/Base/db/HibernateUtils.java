@@ -11,8 +11,8 @@ public class HibernateUtils {
 
     public static Session createHibernateSession()
     {
-        SessionFactory sessionFactory  = null;
-        ServiceRegistry serviceRegistry = null;
+        SessionFactory sessionFactory;
+        ServiceRegistry serviceRegistry;
         Session session = null;
         try {
             try {

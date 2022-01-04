@@ -6,7 +6,7 @@ import Base.objects.util.Coordinate;
 
 import java.util.Random;
 
-public class MediumDifficultyLoader implements DifficultyLoader {
+public class MediumDifficultyLoader extends DifficultyLoader {
 
     private static final String[] FIGUR_ARRAY = {"N", "N", "N", "N", "N", "GG", "E", "M", "N", "N", "N"};
 
@@ -15,16 +15,10 @@ public class MediumDifficultyLoader implements DifficultyLoader {
 
     @Override
     public AbstractFigur[][] loading(AbstractFigur data[][], Player player) {
-        short goldCount = 8;
-        short botCount = 5;
-        AbstractFigur exit = Exit.getExit();
-        Random random = new Random();
-        int exitIndexX = random.nextInt(11);
-        int exitIndexY = random.nextInt(10);
-        data[exitIndexY][exitIndexX] = exit;
-        player = new Player();
-        player.setCoordinate(PLAYER_COORDINATE);
-        data[PLAYER_COORDINATE.getY()][PLAYER_COORDINATE.getX()] = player;
+        data = initDefaultFigurs(data, player);
+        int goldCount = 8;
+        int botCount = 5;
+        int botEaterCount = 2;
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
                 int elemIndex = random.nextInt(FIGUR_ARRAY.length);
@@ -36,19 +30,17 @@ public class MediumDifficultyLoader implements DifficultyLoader {
                     } else if (FIGUR_ARRAY[elemIndex].equals("GG") && goldCount > 0) {
                         arrayValue = new Gold();
                         goldCount--;
+                    } else if (FIGUR_ARRAY[elemIndex].equals("BE") && botEaterCount > 0) {
+                        arrayValue = new BotEater();
+                        botEaterCount--;
                     } else {
                         arrayValue = data[i][j];
                     }
                     arrayValue.setCoordinate(new Coordinate(j, i));
                     data[i][j] = arrayValue;
                 }
-
             }
-
         }
-
         return data;
-
-
     }
 }

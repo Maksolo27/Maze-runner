@@ -6,11 +6,12 @@ import Base.objects.enums.ObjectType;
 import Base.objects.implementation.defaultImpl.MovingFigur;
 
 import javax.swing.*;
+import java.util.Objects;
 
 public class BotEater extends MovingFigur {
 
     public BotEater(){
-        setImage(new ImageIcon(getClass().getResource("/images/minipekka.jpg")));
+        setImage(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/minipekka.jpg"))));
         setObjectType(ObjectType.BOT_EATER);
     }
 
@@ -23,7 +24,6 @@ public class BotEater extends MovingFigur {
             return Action.BOT_EATER_PLAYER;
         }
         if(nextObject.getObjectType() == ObjectType.BOT){
-            System.out.println("nextObjInBotEat = BOT " );
             return Action.EAT_BOT;
         }
         if (nextObject.getObjectType() == ObjectType.GOLD){

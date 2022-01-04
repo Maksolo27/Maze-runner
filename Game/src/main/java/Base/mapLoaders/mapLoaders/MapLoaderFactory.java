@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class MapLoaderFactory implements LoaderFactory {
 
-    private static final String MAP_PATH = "src/main/java/Base/mapLoaders/mapLoaders/";
+    private static final String MAP_PATH = "src/main/java/Base/mapLoaders/mapLoaders/maps/";
 
     public AbstractFigur[][] getMap(Maps type) throws Exception {
         AbstractFigur[][] map = null;
@@ -20,7 +20,6 @@ public class MapLoaderFactory implements LoaderFactory {
                 fileConsist = readFile(MAP_PATH.concat("spiral.txt"));
                 map = parseStringToGameMap(fileConsist);
                 break;
-
             case DATA:
                 fileConsist = readFile(MAP_PATH.concat("data.txt"));
                 map = parseStringToGameMap(fileConsist);
