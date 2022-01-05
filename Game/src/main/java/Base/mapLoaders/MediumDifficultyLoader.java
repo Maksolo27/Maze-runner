@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class MediumDifficultyLoader extends DifficultyLoader {
 
-    private static final String[] FIGUR_ARRAY = {"N", "N", "N", "N", "N", "GG", "E", "M", "N", "N", "N"};
+    private static final String[] FIGUR_ARRAY = {"N", "N", "BE", "N", "N", "N", "GG", "E", "M", "N", "BE", "N"};
 
     short goldCount = 8;
     short botCount = 5;
