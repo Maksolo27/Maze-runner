@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class HardDifficultyLoader extends DifficultyLoader {
 
-    private static final String[] FIGUR_ARRAY = {"N", "N", "N", "N", "GG", "M", "M", "N", "N", "N"};
+    private static final String[] FIGUR_ARRAY = {"N", "N", "N", "N", "GG", "M", "M", "N", "N", "N", "BE"};
 
     @Override
     public AbstractFigur[][] loading(AbstractFigur[][] data, Player player) {
