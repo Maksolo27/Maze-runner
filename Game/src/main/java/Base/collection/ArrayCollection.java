@@ -109,7 +109,7 @@ public class ArrayCollection extends CollectionPublisherImpl implements GameColl
             case WIN:
             case LOSE:
                 movingObjects.remove(player);
-                playerDAO.save(player);
+              //  playerDAO.save(player);
                 if(movingFigur.getObjectType() == ObjectType.PLAYER){
                     data[player.getCoordinate().getY()][player.getCoordinate().getX()] = new Emptiness();
                     movingFigur = null;

@@ -24,6 +24,27 @@ public class MapLoaderFactory implements LoaderFactory {
                 fileConsist = readFile(MAP_PATH.concat("data.txt"));
                 map = parseStringToGameMap(fileConsist);
                 break;
+            case TETRIS:
+                fileConsist = readFile(MAP_PATH.concat("tetris.txt"));
+                map = parseStringToGameMap(fileConsist);
+                break;
+            case TREE:
+                fileConsist = readFile(MAP_PATH.concat("tree.txt"));
+                map = parseStringToGameMap(fileConsist);
+                break;
+            case FISH:
+                fileConsist = readFile(MAP_PATH.concat("fish.txt"));
+                map = parseStringToGameMap(fileConsist);
+                break;
+            case PYRAMIDS:
+                fileConsist = readFile(MAP_PATH.concat("pyramids.txt"));
+                map = parseStringToGameMap(fileConsist);
+                break;
+            case TUNNELS:
+                fileConsist = readFile(MAP_PATH.concat("tunnels.txt"));
+                map = parseStringToGameMap(fileConsist);
+                break;
+
             default:
                 throw new Exception("Not supported Map");
         }
@@ -67,7 +88,6 @@ public class MapLoaderFactory implements LoaderFactory {
     private String getNewLineSeparator() throws Exception {
         String separator = "";
         String os = System.getProperties().getProperty("os.name");
-        System.out.println(os);
         switch (os) {
             case "Linux":
                 separator = "\n";

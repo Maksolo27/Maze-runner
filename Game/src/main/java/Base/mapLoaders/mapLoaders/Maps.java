@@ -1,5 +1,5 @@
 package Base.mapLoaders.mapLoaders;
 
 public enum Maps {
-    SPIRAL, DATA
+    SPIRAL, DATA, TETRIS, TUNNELS, TREE, FISH, PYRAMIDS
 }
