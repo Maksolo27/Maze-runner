@@ -67,11 +67,12 @@ public class MapLoaderFactory implements LoaderFactory {
     private String getNewLineSeparator() throws Exception {
         String separator = "";
         String os = System.getProperties().getProperty("os.name");
+        System.out.println(os);
         switch (os) {
             case "Linux":
                 separator = "\n";
                 break;
-            case "Windows":
+            case "Windows 10":
                 separator = "\r\n";
                 break;
             default:
