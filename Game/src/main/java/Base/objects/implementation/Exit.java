@@ -4,11 +4,12 @@ import Base.objects.enums.ObjectType;
 import Base.objects.implementation.defaultImpl.Figur;
 
 import javax.swing.*;
+import java.util.Objects;
 
 public class Exit extends Figur {
     private static Exit instance;
     private Exit(){
-        setImage(new ImageIcon(getClass().getResource("/images/exit.gif")));
+        setImage(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/exit.gif"))));
         setObjectType(ObjectType.EXIT);
     };
 

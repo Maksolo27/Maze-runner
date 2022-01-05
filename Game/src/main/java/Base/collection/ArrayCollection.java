@@ -20,27 +20,26 @@ import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ArrayCollection extends CollectionPublisherImpl implements GameCollection {
-    MapLoaderFactory mapLoaderFactory = new MapLoaderFactory();
-    PlayerDAO playerDAO = new PlayerDAO();
-    AbstractFigur[][] data;
+    private final PlayerDAO playerDAO = new PlayerDAO();
+    private AbstractFigur[][] data;
     private final List<AbstractMovingFigur> movingObjects = new CopyOnWriteArrayList<>();
     private Player player = new Player();
 
-
     public ArrayCollection(DifficultyLoader difficultyLoader) throws Exception {
+        MapLoaderFactory mapLoaderFactory = new MapLoaderFactory();
         data = mapLoaderFactory.getMap(Maps.DATA);
         data = difficultyLoader.loading(this.data, player);
         initOthers();
     }
 
     private void initOthers() {
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data[i].length; j++) {
-                if (data[i][j].getObjectType() == ObjectType.PLAYER ) {
-                    player = (Player) data[i][j];
+        for (AbstractFigur[] datum : data) {
+            for (int j = 0; j < datum.length; j++) {
+                if (datum[j].getObjectType() == ObjectType.PLAYER) {
+                    player = (Player) datum[j];
                 }
-                if (data[i][j] instanceof AbstractMovingFigur) {
-                    movingObjects.add((AbstractMovingFigur) data[i][j]);
+                if (datum[j] instanceof AbstractMovingFigur) {
+                    movingObjects.add((AbstractMovingFigur) datum[j]);
                 }
             }
         }
@@ -64,7 +63,7 @@ public class ArrayCollection extends CollectionPublisherImpl implements GameColl
         try {
             object.setCoordinate(new Coordinate(x, y));
             data[y][x] = object;
-        }catch (NullPointerException e){
+        }catch (NullPointerException ignored){
         }
     }
 
@@ -75,9 +74,7 @@ public class ArrayCollection extends CollectionPublisherImpl implements GameColl
 
     @Override
     public void moveMovableFigur(ObjectType type, Direction direction) {
-
-        for (int i = 0; i < movingObjects.size(); i++) {
-            AbstractMovingFigur movingFigur = movingObjects.get(i);
+        for (AbstractMovingFigur movingFigur : movingObjects) {
             if (movingFigur.getObjectType() == type) {
                 moveFigurToDirection(movingFigur, direction);
             }
@@ -121,7 +118,6 @@ public class ArrayCollection extends CollectionPublisherImpl implements GameColl
             case EAT_BOT:
                 movingObjects.remove(nextObject);
                 if(movingFigur.getObjectType() == ObjectType.BOT_EATER) {
-                    System.out.println("EAT_BOT");
                     data[movingFigur.getCoordinate().getY()][movingFigur.getCoordinate().getX()] = new Emptiness();
                 }
                 nextObject = new Emptiness();

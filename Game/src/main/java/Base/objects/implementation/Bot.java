@@ -6,11 +6,12 @@ import Base.objects.enums.ObjectType;
 import Base.objects.implementation.defaultImpl.MovingFigur;
 
 import javax.swing.*;
+import java.util.Objects;
 
 public class Bot extends MovingFigur {
 
     public Bot(){
-        setImage(new ImageIcon(getClass().getResource("/images/monster_up.jpg")));
+        setImage(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/monster_up.jpg"))));
         setObjectType(ObjectType.BOT);
     }
 

@@ -9,6 +9,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.swing.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity(name = "player")
 @Data
@@ -25,7 +26,7 @@ public class Player extends MovingFigur implements Serializable {
     private String gameStatus = "In game";
 
     public Player(){
-        setImage(new ImageIcon(getClass().getResource("/images/goldman_up.png")));
+        setImage(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/goldman_up.png"))));
         setObjectType(ObjectType.PLAYER);
     }
 
