@@ -37,7 +37,7 @@ public class MapLoaderFactoryTest {
     @Test
     @SneakyThrows
     public void showMap(){
-        AbstractFigur[][] result = loaderFactory.getMap(Maps.SPIRAL);
+        AbstractFigur[][] result = loaderFactory.getMap(Maps.TETRIS);
         for (int i = 0; i < result.length ; i++) {
             System.out.println();
             for (int j = 0; j < result[i].length; j++) {

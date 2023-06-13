@@ -27,7 +27,7 @@ public class ArrayCollection extends CollectionPublisherImpl implements GameColl
 
     public ArrayCollection(DifficultyLoader difficultyLoader) throws Exception {
         MapLoaderFactory mapLoaderFactory = new MapLoaderFactory();
-        data = mapLoaderFactory.getMap(Maps.DATA);
+        data = mapLoaderFactory.getMap(Maps.TETRIS);
         data = difficultyLoader.loading(this.data, player);
         initOthers();
     }
