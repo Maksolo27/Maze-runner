@@ -8,6 +8,8 @@ import Base.objects.enums.Direction;
 import Base.objects.enums.ObjectType;
 import Base.objects.implementation.Player;
 import Base.observer.CollectionSubscriber;
+import Base.strategy.AgressiveStrategy;
+import Base.threads.BulletThread;
 import Base.threads.GameThread;
 
 import javax.swing.*;
@@ -28,7 +30,9 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
 
     void runTheGame() {
         GameThread thread = new GameThread(collection);
+        BulletThread bulletThread = new BulletThread(collection);
         thread.start();
+        bulletThread.start();
     }
 
     public static void main(String[] args) throws Exception {
@@ -45,7 +49,7 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
 
     public GameMap() throws Exception {
         DifficultyLoaderFactory loaderFactory = new DifficultyLoaderFactory();
-        DifficultyLoader difficultyLoader = loaderFactory.getLoader(DifficultyLoaderType.MEDIUMLOADER);
+        DifficultyLoader difficultyLoader = loaderFactory.getLoader(DifficultyLoaderType.EASYLOADER);
         collection = new ArrayCollection(difficultyLoader);
         collection.addListener(this);
         JFrame frame = new JFrame("Maze runner");
@@ -123,6 +127,8 @@ public class GameMap extends JPanel implements CollectionSubscriber, KeyListener
             case VK_RIGHT:
                 collection.moveMovableFigur(ObjectType.PLAYER,Direction.RIGHT);
                 break;
+            case VK_L:
+                collection.shoot(ObjectType.PLAYER, Direction.RIGHT);
         }
     }
 

@@ -11,8 +11,8 @@ public class EasyDifficultyLoader extends DifficultyLoader {
     @Override
     public AbstractFigur[][] loading(AbstractFigur[][] data, Player player) {
         int goldCount = 17;
-        int botEaterCount = 4;
-        int botCount = 1;
+        int botEaterCount = 0;
+        int botCount = 0;
         data = initDefaultFigurs(data, player);
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
