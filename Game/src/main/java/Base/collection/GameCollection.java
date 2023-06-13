@@ -19,6 +19,9 @@ public interface GameCollection extends CollectionPublisher {
 
     void setObjectByCoordinate(int y, int x, AbstractFigur object);
 
+
+    void shoot (ObjectType type, Direction direction);
+
     Player getPlayer();
 
     void moveMovableFigur(ObjectType type, Direction direction);
@@ -26,4 +29,6 @@ public interface GameCollection extends CollectionPublisher {
     void moveMovableFigur(ObjectType type, MovingStrategy strategy);
 
     List<AbstractMovingFigur> getMovebleData();
+
+    void shootAllBullets ();
 }

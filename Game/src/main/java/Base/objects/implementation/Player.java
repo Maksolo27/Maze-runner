@@ -6,26 +6,20 @@ import Base.objects.enums.ObjectType;
 import Base.objects.implementation.defaultImpl.MovingFigur;
 import lombok.Data;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import javax.swing.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Entity(name = "player")
 @Data
 public class Player extends MovingFigur implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
     private int score = 0;
-    @Column(name = "count_steps")
     private int countSteps = 50;
-    @Column(name = "game_status")
     private String gameStatus = "In game";
 
-    public Player(){
+    public Player() {
         setImage(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/goldman_up.png"))));
         setObjectType(ObjectType.PLAYER);
     }
